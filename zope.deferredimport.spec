@@ -4,7 +4,7 @@
 #
 Name     : zope.deferredimport
 Version  : 4.3.1
-Release  : 6
+Release  : 7
 URL      : https://files.pythonhosted.org/packages/b9/74/6eb2dcf013fac35d086abef2435b5a6621435c2b0c166ef5b63a1b51e91d/zope.deferredimport-4.3.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b9/74/6eb2dcf013fac35d086abef2435b5a6621435c2b0c166ef5b63a1b51e91d/zope.deferredimport-4.3.1.tar.gz
 Summary  : zope.deferredimport allows you to perform imports names that will only be resolved when used in the code.
@@ -25,132 +25,8 @@ BuildRequires : virtualenv
 BuildRequires : zope.proxy
 
 %description
-=========================
- ``zope.deferredimport``
-=========================
-
-.. image:: https://img.shields.io/pypi/v/zope.deferredimport.svg
-        :target: https://pypi.python.org/pypi/zope.deferredimport/
-        :alt: Latest release
-
-.. image:: https://img.shields.io/pypi/pyversions/zope.deferredimport.svg
-        :target: https://pypi.org/project/zope.deferredimport/
-        :alt: Supported Python versions
-
-.. image:: https://travis-ci.org/zopefoundation/zope.deferredimport.svg?branch=master
-        :target: https://travis-ci.org/zopefoundation/zope.deferredimport
-
-.. image:: https://coveralls.io/repos/github/zopefoundation/zope.deferredimport/badge.svg?branch=master
-        :target: https://coveralls.io/github/zopefoundation/zope.deferredimport?branch=master
-
-.. image:: https://readthedocs.org/projects/zopedeferredimport/badge/?version=latest
-        :target: http://zopedeferredimport.readthedocs.io/en/latest/
-        :alt: Documentation Status
-
-Often, especially for package modules, you want to import names for
-convenience, but not actually perform the imports until necessary.
-The zope.deferredimport package provided facilities for defining names
-in modules that will be imported from somewhere else when used.  You
-can also cause deprecation warnings to be issued when a variable is
-used.
-
-Documentation is hosted at https://zopedeferredimport.readthedocs.io/
-
-
-=========
- Changes
-=========
-
-4.3.1 (2019-08-05)
-==================
-
-- Avoid race condition in ``deferredmodule.ModuleProxy.__getattr__``
-  `#8 <https://github.com/zopefoundation/zope.deferredimport/issues/8>`_.
-
-
-4.3 (2018-10-05)
-================
-
-- Add support for Python 3.7.
-
-
-4.2.1 (2017-10-24)
-==================
-
-- Preserve the docstrings of proxied modules created with
-  ``deprecatedFrom``, ``deferredFrom``, etc. See `issue 5
-  <https://github.com/zopefoundation/zope.deferredimport/issues/5>`_.
-
-
-4.2.0 (2017-08-08)
-==================
-
-- Add support for Python 3.5 and 3.6.
-
-- Drop support for Python 2.6 and 3.3.
-
-- Convert doctests to Sphinx documentation, including building docs
-  and running doctest snippets under ``tox``.
-
-
-4.1.0 (2014-12-26)
-==================
-
-- Add support for PyPy.  PyPy3 support is blocked on release of fix for:
-  https://bitbucket.org/pypy/pypy/issue/1946
-
-- Add support for Python 3.4.
-
-- Add support for testing on Travis.
-
-
-4.0.0 (2013-02-28)
-==================
-
-- Add support for Python 3.3.
-
-- Drop support for Python 2.4 and 2.5.
-
-
-3.5.3 (2010-09-25)
-==================
-
-- Add test extra to declare test dependency on ``zope.testing``.
-
-
-3.5.2 (2010-05-24)
-==================
-
-- Fix unit tests broken under Python 2.4 by the switch to the standard
-  library ``doctest`` module.
-
-
-3.5.1 (2010-04-30)
-==================
-
-- Prefer the standard library's ``doctest`` module to the one from
-  ``zope.testing``.
-
-
-3.5.0 (2009-02-04)
-==================
-
-- Add support to bootstrap on Jython.
-
-- Add reference documentation.
-
-
-3.4.0 (2007-07-19)
-==================
-
-- Finish release of ``zope.deferredimport``.
-
-
-3.4.0b1 (2007-07-09)
-====================
-
-- Initial release as a separate project, corresponding to the
-  ``zope.deferredimport`` from Zope 3.4.0b1.
+``zope.deferredimport``
+        =========================
 
 %package license
 Summary: license components for the zope.deferredimport package.
@@ -174,6 +50,8 @@ Summary: python3 components for the zope.deferredimport package.
 Group: Default
 Requires: python3-core
 Provides: pypi(zope.deferredimport)
+Requires: pypi(setuptools)
+Requires: pypi(zope.proxy)
 
 %description python3
 python3 components for the zope.deferredimport package.
@@ -188,15 +66,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582848622
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1603409494
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
