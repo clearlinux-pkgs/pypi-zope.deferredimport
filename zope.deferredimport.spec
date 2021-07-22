@@ -4,7 +4,7 @@
 #
 Name     : zope.deferredimport
 Version  : 4.3.1
-Release  : 14
+Release  : 15
 URL      : https://files.pythonhosted.org/packages/b9/74/6eb2dcf013fac35d086abef2435b5a6621435c2b0c166ef5b63a1b51e91d/zope.deferredimport-4.3.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b9/74/6eb2dcf013fac35d086abef2435b5a6621435c2b0c166ef5b63a1b51e91d/zope.deferredimport-4.3.1.tar.gz
 Summary  : zope.deferredimport allows you to perform imports names that will only be resolved when used in the code.
