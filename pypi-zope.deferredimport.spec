@@ -5,7 +5,7 @@
 #
 Name     : pypi-zope.deferredimport
 Version  : 5.0
-Release  : 33
+Release  : 34
 URL      : https://files.pythonhosted.org/packages/a1/b7/9b0c93edb4c6745ac8784c265d244f5b3bc4082d92f7aefe952aaa5be5f3/zope.deferredimport-5.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a1/b7/9b0c93edb4c6745ac8784c265d244f5b3bc4082d92f7aefe952aaa5be5f3/zope.deferredimport-5.0.tar.gz
 Summary  : zope.deferredimport allows you to perform imports names that will only be resolved when used in the code.
